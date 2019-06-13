@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>News Web Scraper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="jumbotron">
+        <h1 class="display-4">Onion or real news?</h1>
+        <p class="lead">News articles scraped from the onion and a real news source: click the links to find out which!</p>
+        <a class="btn btn-primary btn-lg" id="view-saved" href="#" role="button">View saved articles</a>
+      </div>
+      <div class="container">
+        <div class ="row" id="articles">
+
+        </div>
+      </div>
+      <div id="notes"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="add-note-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group col-12">
+                  <label for="note">Note:</label>
+                  <input type="text" class="form-control" id="note" placeholder="Enter User Name">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="save-note">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+body {
+    background-color: cadetblue;
+}
+
+a, button {
+    color: black;
+}
+
+.link-holder {
+    background-color: #CCC;
+    border: 1px solid white;
+    padding: 5px;
+    margin: 5px;
+    width: 100%
+}
+
+.btn {
+    float: right;
+    margin: 5px;
+}

@@ -108,7 +108,7 @@ $(document).on("click", "#save-note", function () {
       note: $("#note").text()
     }
   }).then(data => {
-    $("#note").text("")
+    $("#note").val("")
     $("#add-note-modal").toggle()
   }).catch(err => {
     console.log(err)

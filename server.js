@@ -36,7 +36,7 @@ require("./routes/api-routes.js")(app)
 
 //Initial scrape
 
-const scrape = (req, res) => {
+const scrape = () => {
 
 
   axios.get("https://www.theonion.com/").then(function (response) {
@@ -45,22 +45,22 @@ const scrape = (req, res) => {
       var $ = cheerio.load(response.data);
 
       // Now, we grab every h2 within an article tag, and do the following:
-      $("section.content-meta__headline__wrapper").each(function (i, element) {
+      $("a.js_link").each(function (i, element) {
           // Save an empty result object
           var result = {};
 
           // Add the text and href of every link, and save them as properties of the result object
           result.title = $(this)
-              .children("a")
+              .children("h1")
               .text();
           console.log(result.title)
           result.link = $(this)
-              .children("a")
               .attr("href");
 
           // Create a new Article using the `result` object built from scraping
           if (result.title !== "Continue Reading") {
-              db.article.create(result)
+            try {
+              db.article.create({result, note: ""})
                   .then(dbArticle => {
                       // View the added result in the console
                       console.log(dbArticle);
@@ -69,11 +69,13 @@ const scrape = (req, res) => {
                       // If an error occurred, log it
                       console.log(err);
                   });
+                } catch (err) {
+
+                }
           }
       });
 
       // Send a message to the client
-      res.send("Scrape Complete");
   });
 }
 

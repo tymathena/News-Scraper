@@ -173,8 +173,4 @@ $(document).on("click", ".save-article", function () {
 
 });
 
-$(document).ready(() => {
-  scrape();
-})
-
 getStartingArticles();

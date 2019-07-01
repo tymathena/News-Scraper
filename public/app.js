@@ -16,6 +16,16 @@ const getStartingArticles = () => {
   });
 }
 
+const scrape = () => {
+  $.getJSON("api/articles", function (data) {
+    // For each one
+    for (var i = 0; i < data.length; i++) {
+      // Display the apropos information on the page
+      $("#articles").append(addArticle(data[i]))
+    }
+  });
+}
+
 const getSavedArticles = () => {
   $.getJSON("api/saved", data => {
     console.log("Saved: ", data)
@@ -162,5 +172,9 @@ $(document).on("click", ".save-article", function () {
   })
 
 });
+
+$(document).ready(() => {
+  scrape();
+})
 
 getStartingArticles();
